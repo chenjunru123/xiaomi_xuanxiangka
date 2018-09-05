@@ -200,7 +200,7 @@ window.onload=function () {
     let milists=document.querySelector(".recommend ul");
     let ws=parseInt(getComputedStyle(miList,null).width)/1.5954323;
     let time=0;
-    console.log(buttonleft,buttonright,milists,ws);
+    // console.log(buttonleft,buttonright,milists,ws);
     buttonleft.onclick=function () {
         time--;
         // console.log(time);
@@ -225,7 +225,7 @@ window.onload=function () {
 /////////////////////////////////////////////////////选项卡////////////////////////////////////////////////////
 //     //1.获取元素
     let lis=document.querySelectorAll(".banner .banner-pic .list .list-box");
-    let son=document.querySelectorAll(".son");
+    let son=document.querySelectorAll(".baby");
     // console.log(lis);
     // console.log(son);
     //2.遍历每一个li
@@ -251,14 +251,49 @@ window.onload=function () {
 
 
 
+/////////////////////////////////////////////////////返回顶部/////////////////////////////////////////////////////
+
+///返回顶部
+    let back=document.querySelector(".last");
+    // console.log(back);
+    //页面滚动的高度
+    window.onscroll=function () {
+        huaH=document.body.scrollTop||document.documentElement.scrollTop;
+
+        // search：页面滚动到一定高度出现
+        if(huaH > 800){
+            back.style.display="block";
+        }else{
+            back.style.display="none";
+        }
+    }
+    // console.log(innerHeight);
+    back.onclick=function () {
+        animate(document.body,{scrollTop:0},1000);
+        animate(document.documentElement,{scrollTop:0},1000);
+    }
 
 
 
+    ///////////////////////    家电选项卡   //////////////////////////////////////////////
+    function house(name,hr,Box){                //选项卡封装
+        let jiadian = document.getElementsByClassName(name)[0];
+        let top_right = jiadian.getElementsByClassName(hr)[0];
 
-
-
-
-
+        let r_list = top_right.getElementsByClassName("r_list");
+        let sectionBox = document.getElementsByClassName(Box);
+        for (let i = 0;i< r_list.length;i++) {
+            r_list[i].onmouseenter=function () {
+                for (let j = 0;j< r_list.length;j++){
+                    sectionBox[j].style.zIndex="5";
+                    r_list[j].classList.remove("ch");
+                }
+                sectionBox[i].style.zIndex="10";
+                r_list[i].classList.add("ch");
+            }
+        }
+    }
+    house("jiadian","hr1","Box1");
 
 
 
