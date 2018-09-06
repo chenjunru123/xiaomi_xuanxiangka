@@ -186,20 +186,48 @@ i{
     color: #333;
     float: left;
     display: block;
+	transition: all .5s;
 }
+.navigation .son .heer{
+	 width: 1226px;
+	 height: 100%;
+	 background:#fff;
+	 margin:0 auto 0 auto;
+	 position: absolute;
+	top: 0;
+	left:160px;
+
+ }
+
 .navigation .son{
 	position: absolute;
 	top: 100px;
 	left: 0;
-	z-index: 999;
 	width: 100%;
-	height: 229px;
-	border-top: 1px solid #e0e0e0;
+	height:0;
+	/*border-top: 1px solid #e0e0e0;*/
 	background: #fff;
-	display: none;
 	box-shadow: 0 0 30px rgba(0,0,0,0.1);
+	/*display: none;*/
+	transition: all .5s linear;
+	z-index: 999;
+	overflow: hidden;
 }
-.navigation ul li a:hover{
+.navigation .son .child{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/*background: #a2d37a;*/
+	width: 202px;
+	height: 229px;
+	border: 1px solid #fff;
+	float: left;
+	cursor: pointer;
+}
+.navigation .son .child h2{
+	margin-top: 5px;
+}
+.navigation ul li a.active{
 	color: #ff6700;
 }
 .navigation .right{
@@ -292,9 +320,9 @@ i{
 	left:161px;
 }
 /*input获取焦点的时候*/ 
-.navigation .right input.text:focus{
-	border:1px solid #ff6700;
-}
+/*.navigation .right input.text:focus{*/
+	/*border:1px solid #ff6700;*/
+/*}*/
 .banner{
 	width: 100%;
 	height: 460px;

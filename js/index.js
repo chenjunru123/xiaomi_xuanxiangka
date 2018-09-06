@@ -294,11 +294,41 @@ window.onload=function () {
         }
     }
     house("jiadian","hr1","Box1");
+/////////////////////////////////////////导航栏选项卡/////////////////////////////////////////////////////////////////////
 
+    //1.获取元素
+    let ul = document.querySelector(".navigation ul");
+    let dad=document.querySelectorAll(".navigation ul li a");
+    let kuang=document.querySelectorAll(".navigation .son");
+    let hehe=document.querySelectorAll(".navigation .son .heer");
+        ul.onmouseenter=function(){
+            kuang[0].style.height="229px";
+        }
+        ul.onmouseleave=function(){
+            kuang[0].style.height="0";
+        }
+    for(let i=0;i<dad.length;i++){
+        dad[i].onmouseenter=function(){
+            for(let j=0;j<hehe.length;j++){
+                dad[j].classList.remove("active");
+                hehe[j].style.zIndex="5";
+            }
+            dad[i].classList.add("active");
+            hehe[i].style.zIndex="50";
+        }
+    }
 
-
-
-
+    // for (let i = 0;i< r_list.length;i++) {
+    //     r_list[i].onmouseenter=function () {
+    //         for (let j = 0;j< r_list.length;j++){
+    //             sectionBox[j].style.zIndex="5";
+    //             r_list[j].classList.remove("ch");
+    //         }
+    //         sectionBox[i].style.zIndex="10";
+    //         r_list[i].classList.add("ch");
+    //     // }
+    // }
+    //
 
 
 
